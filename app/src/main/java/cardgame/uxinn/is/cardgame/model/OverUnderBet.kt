@@ -1,23 +1,20 @@
 package cardgame.uxinn.`is`.cardgame.model
 
-import android.util.Pair
-
 /**
  * Created by aegir on 14.05.2018.
  */
 class OverUnderBet(pair: CardPair) {
-    val faceDown: Card = pair.first
-    private val faceUp: Card = pair.second
+    val cardDeal: CardPair = pair
     lateinit var betOnCard: Card
 
     fun playerWins(): Boolean {
-        if (faceDown.value == faceUp.value)
+        if (cardDeal.first.value == cardDeal.second.value)
             return false
 
-        val winnerCardValue = if (faceDown.value > faceUp.value)
-            faceDown.value
+        val winnerCardValue = if (cardDeal.first.value > cardDeal.second.value)
+            cardDeal.first.value
         else
-            faceUp.value
+            cardDeal.second.value
 
         return betOnCard.value == winnerCardValue
     }

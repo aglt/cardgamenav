@@ -8,4 +8,5 @@
     <color name="colorLoserBackground">#ff7c70</color>
     <color name="colorStartScreen">#794ab7</color>
     <color name="colorYellow">#FFEB3B</color>
+    <color name="colorPrimaryText">#757575</color>
 </resources>

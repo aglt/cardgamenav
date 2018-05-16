@@ -130,15 +130,32 @@
         android:id="@+id/card_down_last"
         android:layout_width="64dp"
         android:layout_height="86dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        tools:visibility="visible"
-        android:visibility="invisible"
         android:src="@drawable/ic_card_black_joker"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/card_down_image_view"
-        app:layout_constraintStart_toStartOf="@+id/card_down_image_view"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_down_image_view"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.031"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/card_up_last"
+        android:layout_width="64dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_card_black_joker"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/card_down_last"
+        app:layout_constraintEnd_toEndOf="@+id/card_up_image_view"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card_down_last"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible" />
 
 </android.support.constraint.ConstraintLayout>
