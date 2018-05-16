@@ -6,6 +6,6 @@
     <color name="colorGrayBorder">#BDBDBD</color>
     <color name="colorWinnerBackground">#97f6c4</color>
     <color name="colorLoserBackground">#ff7c70</color>
-    <color name="colorStartScreen">#f3f1f3</color>
+    <color name="colorStartScreen">#794ab7</color>
     <color name="colorYellow">#FFEB3B</color>
 </resources>

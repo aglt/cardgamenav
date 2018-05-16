@@ -29,19 +29,16 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.message = "Velkominn í Yfir/undir! Þorirðu að taka leik?"
         viewModel.buttonText = "Spila"
         displayView(viewModel)
     }
 
     private fun displayView(m: MainViewModel) {
-        viewHolder.message.text = m.message
         viewHolder.playGameButton.text = m.buttonText
         viewHolder.playGameButton.setOnClickListener({ NavHostFragment.findNavController(this).navigate(R.id.nav_action_next) })
     }
 
     private class ViewHolder (view: View) {
-        val message: TextView = view.findViewById(R.id.text_view_message)
         val playGameButton: Button = view.findViewById(R.id.start_game_button)
     }
 }
