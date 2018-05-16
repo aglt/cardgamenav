@@ -18,10 +18,10 @@ class OverUnderDealer {
         return cardDeck.count / 2
     }
 
-    fun deal(): Pair<Card, Card> {
+    fun deal(): CardPair {
         if (remainingDeals() == 0) throw RuntimeException("No more cards left")
 
         val pair = cardDeck.deal(2)
-        return Pair(pair[0], pair[1])
+        return CardPair(pair[0], pair[1])
     }
 }

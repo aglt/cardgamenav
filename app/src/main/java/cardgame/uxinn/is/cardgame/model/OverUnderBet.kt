@@ -5,7 +5,7 @@ import android.util.Pair
 /**
  * Created by aegir on 14.05.2018.
  */
-class OverUnderBet(pair: Pair<Card, Card>) {
+class OverUnderBet(pair: CardPair) {
     private val faceDown: Card = pair.first
     private val faceUp: Card = pair.second
     lateinit var betOnCard: Card

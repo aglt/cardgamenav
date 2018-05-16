@@ -8,6 +8,7 @@ import java.util.*
  */
 
 data class Player(var wins: Int = 0)
+data class CardPair(val first: Card, val second: Card)
 
 class OverUnderGame(private val player: Player) {
     private lateinit var dealer: OverUnderDealer
@@ -32,7 +33,7 @@ class OverUnderGame(private val player: Player) {
         return dealer.remainingDeals()
     }
 
-    fun deal(): Pair<Card, Card> {
+    fun deal(): CardPair {
         if (remainingDeals() == 0) throw RuntimeException("No more cards")
         return dealer.deal()
     }

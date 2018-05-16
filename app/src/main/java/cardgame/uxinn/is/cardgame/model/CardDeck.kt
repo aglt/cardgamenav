@@ -48,11 +48,6 @@ class CardDeck(private val cards: MutableList<Card>) {
             return cards.size
         }
 
-    val hasCards: Boolean
-        get() {
-            return cards.size > 0
-        }
-
     fun deal(numberOfCards: Int): List<Card> {
         if (numberOfCards > cards.size) throw IndexOutOfBoundsException("numberOfCards " + numberOfCards + " > size " + cards.size)
 
