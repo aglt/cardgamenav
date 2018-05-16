@@ -34,6 +34,6 @@ class ExampleUnitTest {
         val houseWinsPercentage = 100 - (playerWins.toDouble() / iterations * 100)
 
         println("house wins " + houseWinsPercentage + "% of the time with " + iterations + " iterations")
-        assertTrue(houseWinsPercentage > 51)
+        assertTrue(houseWinsPercentage >= 51)
     }
 }

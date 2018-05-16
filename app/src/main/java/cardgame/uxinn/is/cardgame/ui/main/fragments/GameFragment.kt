@@ -10,7 +10,6 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import cardgame.uxinn.`is`.cardgame.R
 import cardgame.uxinn.`is`.cardgame.model.OverUnderBet
@@ -56,7 +55,11 @@ class GameFragment : Fragment() {
         viewHolder.dealerCount.text = viewModel.dealerCount.toString()
         viewHolder.playerCount.text = viewModel.playerCount.toString()
         viewHolder.cardUp.setImageResource(getImageResource(viewModel.cardDeal.second.imageResource))
-        setTextViewFade(viewHolder.count)
+        fadeInOut(viewHolder.count)
+        if(viewModel.lastCard != null) {
+            viewHolder.cardDownLast.setImageResource(getImageResource(viewModel.lastCard!!.imageResource))
+            fadeInOut(viewHolder.cardDownLast)
+        }
     }
 
     private fun onBetPlaced(what: Bet) {
@@ -88,6 +91,7 @@ class GameFragment : Fragment() {
         } else {
             viewModel.dealerCount++
         }
+        viewModel.lastCard = bet.faceDown
         if (!game.isFinished) {
             viewModel.dealsLeftCount = game.remainingDeals()
             viewModel.cardDeal = game.deal()
@@ -95,23 +99,23 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun setTextViewFade(textView: TextView) {
+    private fun fadeInOut(view: View) {
         val alphaAnim = AlphaAnimation(1.0f, 0.0f)
         alphaAnim.startOffset = 200
         alphaAnim.duration = 1000
         alphaAnim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {
-                textView.visibility = View.VISIBLE
+                view.visibility = View.VISIBLE
             }
 
             override fun onAnimationEnd(animation: Animation) {
-                textView.visibility = View.INVISIBLE
+                view.visibility = View.INVISIBLE
             }
 
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
-        textView.animation = alphaAnim
+        view.animation = alphaAnim
     }
 
     private fun getImageResource(resourceName: String): Int {
@@ -128,7 +132,7 @@ class GameFragment : Fragment() {
         val count: TextView = view.findViewById(R.id.counter_text_view)
         val dealerCount: TextView = view.findViewById(R.id.dealer_counter_text_view)
         val playerCount: TextView = view.findViewById(R.id.player_counter_text_view)
-        val playerAvatar: ImageView = view.findViewById(R.id.player_avatar)
+        val cardDownLast: ImageView = view.findViewById(R.id.card_down_last)
         val cardUp: ImageView = view.findViewById(R.id.card_up_image_view)
         private val cardDown: ImageView = view.findViewById(R.id.card_down_image_view)
 

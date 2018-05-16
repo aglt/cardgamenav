@@ -12,4 +12,5 @@ class GameViewModel : ViewModel() {
     lateinit var title: String
     lateinit var playerAvatarSource: String
     lateinit var cardDeal: CardPair
+    var lastCard: Card? = null
 }
