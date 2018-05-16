@@ -18,5 +18,32 @@
         android:id="@+id/gameFragment"
         android:name="cardgame.uxinn.is.cardgame.ui.main.fragments.GameFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_fragment" />
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/nav_action_game_over"
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@+id/mainFragment" />
+        <action
+            android:id="@+id/nav_action_game_results_winner"
+            app:destination="@id/resultsWinnerFragment"
+            app:popUpTo="@+id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="cardgame.uxinn.is.cardgame.ui.main.fragments.GameOverFragment"
+        android:label="game_over_fragment"
+        tools:layout="@layout/game_over_fragment" >
+        <action
+            android:id="@+id/action_game_over_next"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsWinnerFragment"
+        android:name="cardgame.uxinn.is.cardgame.ui.main.fragments.ResultsWinnerFragment"
+        android:label="results_winner_fragment"
+        tools:layout="@layout/results_winner_fragment" >
+        <action
+            android:id="@+id/action_winner_next"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

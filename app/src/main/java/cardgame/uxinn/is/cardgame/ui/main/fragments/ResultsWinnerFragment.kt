@@ -11,16 +11,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.NavHostFragment
 import cardgame.uxinn.`is`.cardgame.R
-import cardgame.uxinn.`is`.cardgame.ui.main.viewmodels.GameOverViewModel
+import cardgame.uxinn.`is`.cardgame.ui.main.viewmodels.ResultsWinnerViewModel
 
-class GameOverFragment : Fragment() {
+class ResultsWinnerFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = ResultsWinnerFragment()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.game_over_fragment, container, false)
+        val view = inflater.inflate(R.layout.results_winner_fragment, container, false)
+
         view.findViewById<Button>(R.id.button_close)
                 .setOnClickListener {
-                    NavHostFragment.findNavController(this).navigate(R.id.action_game_over_next)
+                    NavHostFragment.findNavController(this).navigate(R.id.action_winner_next)
                 }
         return view
     }
